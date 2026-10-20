@@ -1,15 +1,25 @@
+import './App.css'
+import KartuMenu from './components/KartuMenu';
+import LabelHarga from './components/LabelHarga';
+import Panel from './components/Panel';
+
 function App(){
   const nama = "Azka";
   const jam = 9;
+  const n = 96;
 
   return(
     <section>
       <h1 className="judul" style={{color: "blue" }}>Kantin {nama}</h1>
       <p>{(jam < 12) ? "Selamat Pagi" : "Selamat Siang"}</p>
-      <p>Saldo Awal kartu kantin: Rp:{37 * 1000}</p>
+      <p>Saldo Awal kartu kantin: Rp:{n * 1000}</p>
       <button disabled={true}>Bayar</button>
+      <Panel>
+        <KartuMenu nama="Nasi Ayam Geprek" harga={1000 + (n * 100)}></KartuMenu>
+        <KartuMenu nama="Nasi Ayam Bakar" harga={1000 + (n * 100)}></KartuMenu>
+        <KartuMenu nama="Es Teh" harga={1000 + (n * 100)} kategori="Minuman"></KartuMenu>
+      </Panel>
     </section>
-
     );
 }
 
